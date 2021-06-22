@@ -142,7 +142,16 @@ for(let i=0; i <answers.length; i++){
 const reinicia = () => {
     location.reload();
 }
+
+const audioIniciar =  () => {
+    let soundInit = document.createElement("iframe");
+    soundInit.classList.add("hide");
+    //console.log("sí escucho", soundInit);
+    soundInit.setAttribute("src", "assets/sound/inicio.mp3");
+    document.body.appendChild(soundInit);
+}
  
 //listeners
 triviaForm.addEventListener("submit", getApiData);
+triviaForm.addEventListener("submit", audioIniciar);
 reiniciar.addEventListener("click", reinicia);
