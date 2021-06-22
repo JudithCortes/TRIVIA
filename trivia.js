@@ -100,15 +100,16 @@ let selectAnswer = id => {
     //console.log(id);
     let answerId = id;
     if(answerId == correctIndex){
-        
-        score = score +1;
+        body.classList.remove("wrong");
         body.classList.add("correct");
-        //alert("Respuesta correcta. Felicidades!");
+        score = score +1;
+        alert("Respuesta correcta. Felicidades!");
         
     }
     else{
+        body.classList.remove("correct");
         body.classList.add("wrong");
-        //alert("Ups! Respuesta incorrecta");
+        alert("Ups! Respuesta incorrecta");
         
     }
     if(questIndex < amount.value -1){
@@ -121,14 +122,25 @@ let selectAnswer = id => {
     }
 };
 
-const showFinalResults =() => { 
+const showFinalResults = () => { 
     containerQuiz.innerHTML = "";
     let scoreFinal= document.createElement("p");
     scoreFinal.innerHTML = `Juego finalizado! Tu score es: ${score}`;
     containerQuiz.appendChild(scoreFinal);
     body.classList.remove("wrong");
     body.classList.remove("correct");
-    //questionContainer.appendChild(restartBtn);
+
+    console.log(amount.value);
+    x = amount.value;
+    amountPercent = parseInt(x * (0.80));
+    //console.log(amountPercent, score);   
+
+    if(score < amountPercent){
+        console.log( "perdiste");
+    }
+    else{
+        console.log( "ganaste");
+    }
 };
 
 
