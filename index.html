@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TRIVIA</title>
+</head>
+<body>
+    <div class="container">
+    <form action="" id="trivia">
+        <h3>Trivia</h3>
+<!--Cantidad de preguntas-->
+        <div class="quiz">
+            <label for="amount">Cantidad de preguntas:</label>
+            <input  class = "btn" type="number" id="amount" min="0" class="amount" value="10">
+        </div>
+<!--Categoria-->
+        <div class="quiz">
+            <label for="category">Categoria: </label>
+            <select class = "btn" name="" id="category">
+                <option value="0">Cualquier categoria</option>
+                <option value="9">Cultura general</option>
+                <option value="10">Libros</option>
+                <option value="11">Peliculas</option>
+                <option value="12">Música</option>
+                <option value="13">Musicales y teatros</option>
+                <option value="14">Televisión</option>
+                <option value="15">Videojuegos</option>
+                <option value="16">Juegos de mesa</option>
+                <option value="17">Ciencia y naturaleza</option>
+                <option value="18">Computación</option>
+                <option value="19">Matemáticas</option>
+                <option value="20">Mitologia</option>
+                <option value="21">Deportes</option>
+                <option value="22">Geografía</option>
+                <option value="23">Historia</option>
+                <option value="24">Política</option>
+                <option value="25">Arte</option>
+                <option value="26">Celebridades</option>
+                <option value="27">Animales</option>
+                <option value="28">Autos</option>
+                <option value="29">Comics</option>
+                <option value="30">Gadgets</option>
+                <option value="31">Ánime y manga</option>
+                <option value="32">Caricaturas</option>
+            </select>
+        </div>
+<!--Dificultad-->
+        <div class="quiz">
+            <label for="difficulty">Dificultad: </label>
+            <select class = "btn" name="" id="difficulty">
+                <option value="0">Cualquier dificultad</option>
+                <option value="easy">Fácil</option>
+                <option value="medium">Moderada</option>
+                <option value="hard">Dificil</option>
+            </select>
+        </div>
+ <!--Tipo de pregunta-->
+        <div class="quiz">
+            <label for="type">Tipo de pregunta: </label>
+            <select class = "btn" name="" id="type">
+                <option value="0">Cualquier tipo</option>
+                <option value="multiple">Opción múltile</option>
+                <option value="boolean">Verdadero / Falso</option>
+            </select>          
+        </div>
+<!--Botoón enviar formulario-->  
+        <input type="submit" value ="Start" class= "start-btn btn">
+    </form>
+<!--Contenedor preguntas-->  
+    <div class="container-quiz hide" id="containerQuiz">
+        <p id="questionName"></p>
+        <div class="question-items btn-grid" id ="answer-buttons">
+            <button id="1" type="button" class = "answer">Ans 1</button>
+            <button id="2" type="button" class = "answer">Ans 2</button>
+            <button id="3" type="button" class = "answer">Ans 3</button>
+            <button id="4" type="button" class = "answer">Ans 4</button>
+        </div>
+<!--Número de pregunta--> 
+        <p>
+            <span id="question_index"></span>/ <span id="num_questions"></span>
+        </p>
+    </div>
+<!--Boton para reiniciar-->
+    <div class="controls hide">
+        <button id = "reinicia-btn" class ="start-btn btn hide">Jugar de nuevo</button>
+    </div>
+</div>
+    
+
+
+<!--Resultados--> 
+
+    <script src="trivia.js"></script>
+</body>
+</html>
