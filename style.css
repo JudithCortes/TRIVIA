@@ -28,12 +28,25 @@ body.wrong{
 }
 
 .container{
-  width: 880px;
+  width: 500px;
   max-width: 88%;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px 2px ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-quiz{
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: -35px;
 }
 
 .btn-grid{
@@ -48,7 +61,7 @@ body.wrong{
   display: none;
 }
 
-.btn{
+.btn, .answer{
   --hue:var(--hue-neutral);
   border: 1px solid hsl(var(--hue), 100%, 30%);
   background-color: hsl(var(--hue), 100%, 50%);
@@ -59,6 +72,7 @@ body.wrong{
 }
 
 .btn:hover{
+  outline: black ;
   border-color:black;
 }
 
@@ -71,10 +85,13 @@ body.wrong{
   --hue: var(--hue-wrong);
 }
 .start-btn{
-  background-color: red;
+  width: 50%;
+  background-color: #98b825;
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10x 20px;
+  margin: 40px auto;
+
 }
 
 .controls{
@@ -88,7 +105,7 @@ body.wrong{
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: center;
+    justify-content: stretch;
 }
 
 .quiz{
@@ -96,4 +113,25 @@ body.wrong{
   flex-direction: column;
   align-items: center;
   margin-bottom: 25px;
+}
+
+h3{
+ margin-top: 40px;
+ font-size: xx-large;
+}
+
+
+label{
+  padding: 10px;
+}
+
+.container-option{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+#reinicia-btn{
+  width: 100%;
 }

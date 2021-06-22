@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <title>TRIVIA</title>
 </head>
-<body>
+<body id="body">
     <div class="container">
-    <form action="" id="trivia">
         <h3>Trivia</h3>
+    <form action="" id="trivia">
 <!--Cantidad de preguntas-->
+        <div class="container-option">
         <div class="quiz">
             <label for="amount">Cantidad de preguntas:</label>
             <input  class = "btn" type="number" id="amount" min="0" class="amount" value="10">
@@ -66,9 +67,12 @@
                 <option value="boolean">Verdadero / Falso</option>
             </select>          
         </div>
-<!--Botoón enviar formulario-->  
+    </div>
+        <!--Botoón enviar formulario-->  
         <input type="submit" value ="Start" class= "start-btn btn">
     </form>
+
+    
 <!--Contenedor preguntas-->  
     <div class="container-quiz hide" id="containerQuiz">
         <p id="questionName"></p>
@@ -78,20 +82,12 @@
             <button id="3" type="button" class = "answer">Ans 3</button>
             <button id="4" type="button" class = "answer">Ans 4</button>
         </div>
-<!--Número de pregunta--> 
-        <p>
-            <span id="question_index"></span>/ <span id="num_questions"></span>
-        </p>
     </div>
 <!--Boton para reiniciar-->
     <div class="controls hide">
         <button id = "reinicia-btn" class ="start-btn btn hide">Jugar de nuevo</button>
     </div>
 </div>
-    
-
-
-<!--Resultados--> 
 
     <script src="trivia.js"></script>
 </body>

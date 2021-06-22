@@ -1,4 +1,5 @@
 
+let body = document.getElementById("body");
 //elementos html
 let triviaForm = document.getElementById("trivia");
 let containerQuiz = document.getElementById("containerQuiz");
@@ -10,6 +11,13 @@ let category = document.getElementById("category");
 let difficulty = document.getElementById("difficulty");
 let type = document.getElementById("type");
 let answers = document.getElementsByClassName("answer");
+
+///botones respuestas
+let answ_1 = document.getElementById("1");
+let answ_2 = document.getElementById("2");
+let answ_3 = document.getElementById("3");
+let answ_4 = document.getElementById("4");
+            
 //variables
 let questions;
 let correctIndex = 0;
@@ -38,7 +46,6 @@ const nextQuestion = () => {
     console.log(questions);
     console.log(amount.value);
     console.log("your score is " + score);
-
     containerQuiz.style.display = "flex";
     triviaForm.style.display = "none";
     
@@ -48,16 +55,24 @@ const nextQuestion = () => {
         currentQuestion.question;
 
         if(currentQuestion.incorrect_answers.length ==1){
-            document.getElementById("1").innerText = "True";
-            document.getElementById("2").innerText = "False";
-            document.getElementById("3").style.display = "none";
-            document.getElementById("4").style.display = "none";
+    
+            answ_1.innerText = "True";
+            answ_2.innerText = "False";
+            answ_3.style.display = "none";
+            answ_4.style.display = "none";
 
-            if(currentQuestion.correct_answer === "True")
+            if(currentQuestion.correct_answer === "True"){
+                
                 correctIndex =1;
-            else correctIndex = 2;
+            }
+                
+            else {
+                correctIndex = 2;
+            }
+                
         }
         else{
+            
             document.getElementById("1").style.display = "Block";
             document.getElementById("2").style.display = "Block";
             document.getElementById("3").style.display = "Block";
@@ -85,11 +100,16 @@ let selectAnswer = id => {
     //console.log(id);
     let answerId = id;
     if(answerId == correctIndex){
+        
         score = score +1;
-        alert("Respuesta correcta. Felicidades!");
+        body.classList.add("correct");
+        //alert("Respuesta correcta. Felicidades!");
+        
     }
     else{
-        alert("Ups! Respuesta incorrecta");
+        body.classList.add("wrong");
+        //alert("Ups! Respuesta incorrecta");
+        
     }
     if(questIndex < amount.value -1){
         questIndex++;
@@ -106,6 +126,8 @@ const showFinalResults =() => {
     let scoreFinal= document.createElement("p");
     scoreFinal.innerHTML = `Juego finalizado! Tu score es: ${score}`;
     containerQuiz.appendChild(scoreFinal);
+    body.classList.remove("wrong");
+    body.classList.remove("correct");
     //questionContainer.appendChild(restartBtn);
 };
 
