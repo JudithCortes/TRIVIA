@@ -106,13 +106,15 @@ let selectAnswer = id => {
         body.classList.remove("wrong");
         body.classList.add("correct");
         score = score +1;
-        alert("Respuesta correcta. Felicidades!");
+        soundInit.setAttribute("src", "assets/sound/rescorrect.mp3");
+        //alert("Respuesta correcta. Felicidades!");
         
     }
     else{
         body.classList.remove("correct");
         body.classList.add("wrong");
-        alert("Ups! Respuesta incorrecta");
+        soundInit.setAttribute("src", "assets/sound/incorrecta.mp3");
+        //alert("Ups! Respuesta incorrecta");
         
     }
     if(questIndex < amount.value -1){
