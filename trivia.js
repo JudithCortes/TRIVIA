@@ -4,6 +4,9 @@ let body = document.getElementById("body");
 let triviaForm = document.getElementById("trivia");
 let containerQuiz = document.getElementById("containerQuiz");
 let reiniciar = document.getElementById("reinicia-btn");
+let soundInit = document.createElement("iframe");
+soundInit.classList.add("hide");
+document.body.appendChild(soundInit);
 
 //obtener inputs
 let amount = document.getElementById("amount");
@@ -135,11 +138,13 @@ const showFinalResults = () => {
     amountPercent = parseInt(x * (0.80));
     //console.log(amountPercent, score);   
 
-    if(score < amountPercent){
+    if(score === 0 || score < amountPercent){
         console.log( "perdiste");
+        soundInit.setAttribute("src", "assets/sound/gameover.mp3");
     }
-    else{
+    else if(score === x || score >= amountPercent ){
         console.log( "ganaste");
+        soundInit.setAttribute("src", "assets/sound/bites-ta-da-winner.mp3");
     }
 };
 
@@ -156,14 +161,11 @@ const reinicia = () => {
 }
 
 const audioIniciar =  () => {
-    let soundInit = document.createElement("iframe");
-    soundInit.classList.add("hide");
-    //console.log("sí escucho", soundInit);
     soundInit.setAttribute("src", "assets/sound/inicio.mp3");
-    document.body.appendChild(soundInit);
 }
  
 //listeners
 triviaForm.addEventListener("submit", getApiData);
 triviaForm.addEventListener("submit", audioIniciar);
 reiniciar.addEventListener("click", reinicia);
+
